@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgba(23, 64, 139, 0.3);
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.header {
+  height: 80px;
+  background-color: #17408b;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 70px;
+}
+
+.nba-logo {
+  max-height: 50px;
+  max-width: 100%;
+}
+
+/* search button */
+
+form {
+  position: relative;
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+#search-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.fa {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #17408b;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+form:hover,
+form:valid {
+  width: 500px;
+  cursor: pointer;
+}
+
+form:hover input,
+form:valid input {
+  display: block;
+  padding-left: 50px;
+  padding-right: 20px;
+}
+
+form:hover .fa,
+form:valid .fa {
+  background: #17408b;
+  color: white;
+}
+
+.half-body {
+  display: flex;
+}
+
+.half-body img {
+  margin-top: -50px;
+  margin-left: -200px;
+  min-height: 800px;
+  max-width: 100%;
+}
+
+/* player info */
+.player-info {
+  margin: 40px 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-container,
+.team-container,
+.measurement-container {
+  padding: 10px 0;
+}
+
+.name-container label {
+  display: block;
+  font-size: 7rem;
+  line-height: 7.1rem;
+  color: black;
+}
+
+.name-container span {
+  font-weight: 600;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.team-container {
+  display: flex;
+}
+
+.team-container span {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: black;
+}
+
+.team-container .separator {
+  width: 2px;
+  background: black;
+  margin: 0 20px;
+}
+
+.measurement-container {
+  display: flex;
+  gap: 100px;
+}
+
+.measurement-container .height,
+.measurement-container .weight {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.height label,
+.weight label {
+  display: block;
+  font-size: 1.7rem;
+  color: black;
+}
+
+.height span,
+.weight span {
+  font-weight: 600;
+  font-size: 4rem;
+  color: black;
+}
+
+.stats-log {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Adjust the color and transparency as needed */
+  backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+  opacity: 0.8;
+}
+
+.stats-log label {
+  display: block;
+  font-size: 18px;
+  line-height: 21px;
+  color: black;
+}
+
+.stats-log span {
+  font-weight: 600;
+  font-size: 36px;
+  color: black;
+}
