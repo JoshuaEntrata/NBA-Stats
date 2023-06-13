@@ -16,12 +16,9 @@
     <div class="header">
       <img class="nba-logo" src="./img/nba-logo.png" />
       <form action="">
-        <input id="search-player" type="search" required />
-        <i class="fa fa-search"></i>
-        <div class="menu">
-          <div class="dropdown-container" id="results"></div>
-        </div>
-        <button type="submit" data-submit>SEARCH</button>
+        <input id="search-player" type="search" autocomplete="off" required />
+        <button type="submit" data-submit><i class="fa fa-search"></i></button>
+        <div class="player-list" id="results"></div>
       </form>
     </div>
 
@@ -31,7 +28,7 @@
         <span id="last-name"></span>
       </div>
       <div class="team-container">
-        <span>#11</span>
+        <span id="team"></span>
         <div class="separator"></div>
         <span id="position"></span>
       </div>
@@ -48,6 +45,10 @@
     </div>
 
     <div class="stats-log">
+      <div>
+        <label>Season</label>
+        <span id="stats-season"></span>
+      </div>
       <div>
         <label>GP</label>
         <span id="stats-gp"></span>
@@ -94,6 +95,6 @@
       </div>
     </div>
 
-    <script src="styles.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
