@@ -90,15 +90,9 @@ form:valid .fa {
   color: white;
 }
 
-.half-body {
-  display: flex;
-}
-
-.half-body img {
-  margin-top: -50px;
-  margin-left: -200px;
-  min-height: 800px;
-  max-width: 100%;
+form:hover button,
+form:valid button {
+  margin-top: 200px;
 }
 
 /* player info */

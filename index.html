@@ -18,79 +18,82 @@
       <form action="">
         <input id="search-player" type="search" required />
         <i class="fa fa-search"></i>
+        <div class="menu">
+          <div class="dropdown-container" id="results"></div>
+        </div>
+        <button type="submit" data-submit>SEARCH</button>
       </form>
     </div>
 
-    <div class="half-body">
-      <div class="player-info">
-        <div class="name-container">
-          <label>Kyrie</label>
-          <span>Irving</span>
+    <div class="player-info">
+      <div class="name-container">
+        <label id="first-name"></label>
+        <span id="last-name"></span>
+      </div>
+      <div class="team-container">
+        <span>#11</span>
+        <div class="separator"></div>
+        <span id="position"></span>
+      </div>
+      <div class="measurement-container">
+        <div class="height">
+          <label>Height</label>
+          <span id="height"></span>
         </div>
-        <div class="team-container">
-          <span>#11</span>
-          <div class="separator"></div>
-          <span>G</span>
-        </div>
-        <div class="measurement-container">
-          <div class="height">
-            <label>Height</label>
-            <span>6'3</span>
-          </div>
-          <div class="weight">
-            <label>Weight</label>
-            <span>193 lbs</span>
-          </div>
+        <div class="weight">
+          <label>Weight</label>
+          <span id="weight"></span>
         </div>
       </div>
-      <img src="./img/kyrie.png" />
     </div>
 
     <div class="stats-log">
-      <div class="games">
+      <div>
         <label>GP</label>
-        <span>60</span>
+        <span id="stats-gp"></span>
       </div>
-      <div class="mins">
+      <div>
         <label>MPG</label>
-        <span>37:18</span>
+        <span id="stats-mpg"></span>
       </div>
-      <div class="pts">
+      <div>
         <label>PPG</label>
-        <span>27.05</span>
+        <span id="stats-ppg"></span>
       </div>
-      <div class="fg-pct">
+      <div>
         <label>FG%</label>
-        <span>49.4%</span>
+        <span id="stats-fg"></span>
       </div>
-      <div class="fg3-pct">
+      <div>
         <label>3P%</label>
-        <span>37.9%</span>
+        <span id="stats-3fg"></span>
       </div>
-      <div class="ft-pct">
+      <div>
         <label>FT%</label>
-        <span>90.5%</span>
+        <span id="stats-ft"></span>
       </div>
-      <div class="reb">
+      <div>
         <label>RPG</label>
-        <span>5.07</span>
+        <span id="stats-rpg"></span>
       </div>
-      <div class="ast">
+      <div>
         <label>APG</label>
-        <span>5.52</span>
+        <span id="stats-apg"></span>
       </div>
-      <div class="stl">
+      <div>
         <label>SPG</label>
-        <span>1.1</span>
+        <span id="stats-spg"></span>
       </div>
-      <div class="blk">
+      <div>
         <label>BPG</label>
-        <span>0.75</span>
+        <span id="stats-bpg"></span>
       </div>
-      <div class="tov">
+      <div>
         <label>TPG</label>
-        <span>2.13</span>
+        <span id="stats-tpg"></span>
       </div>
     </div>
+
+    <script src="styles.js"></script>
   </body>
 </html>
