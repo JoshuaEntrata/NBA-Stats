@@ -3,12 +3,14 @@ const submit = document.querySelector("[data-submit]");
 const bar = document.getElementById("results");
 
 submit.addEventListener("click", (event) => {
-  event.preventDefault(); // Prevent form submission and page refresh
+  event.preventDefault();
   const playerSearch = player.value;
-  const bballAPI = `https://www.balldontlie.io/api/v1/players?search=${playerSearch}`;
-  getPlayerInfo(bballAPI);
-  const bar = document.getElementById("results");
-  bar.classList.add("hide");
+  if (playerSearch.trim() !== "") {
+    const bballAPI = `https://www.balldontlie.io/api/v1/players?search=${playerSearch}`;
+    getPlayerInfo(bballAPI);
+    const bar = document.getElementById("results");
+    bar.classList.add("hide");
+  }
 });
 
 const getPlayerInfo = async (bballAPI) => {
@@ -18,7 +20,7 @@ const getPlayerInfo = async (bballAPI) => {
 
     const [
       {
-        player_id,
+        id,
         first_name,
         last_name,
         team,
@@ -43,7 +45,7 @@ const getPlayerInfo = async (bballAPI) => {
     playerHeight.textContent = `${height_feet}'${height_inches}`;
     playerWeight.textContent = `${weight_pounds} lbs`;
 
-    getSeasonAverages(player_id);
+    getSeasonAverages(id);
   } catch (error) {
     console.log(error);
   }
@@ -72,6 +74,8 @@ const getSeasonAverages = async (player_id) => {
       },
     ] = data;
 
+    console.log(data);
+
     const statsSeason = document.getElementById("stats-season");
     const statsGP = document.getElementById("stats-gp");
     const statsMPG = document.getElementById("stats-mpg");
@@ -89,9 +93,9 @@ const getSeasonAverages = async (player_id) => {
     statsGP.textContent = `${games_played}`;
     statsMPG.textContent = `${min}`;
     statsPPG.textContent = `${pts}`;
-    statsFG.textContent = `${fg_pct}`;
-    stats3FG.textContent = `${fg3_pct}`;
-    statsFT.textContent = `${ft_pct}`;
+    statsFG.textContent = `${(fg_pct * 100).toFixed(2)}%`;
+    stats3FG.textContent = `${(fg3_pct * 100).toFixed(2)}%`;
+    statsFT.textContent = `${(ft_pct * 100).toFixed(2)}%`;
     statsRPG.textContent = `${reb}`;
     statsAPG.textContent = `${ast}`;
     statsSPG.textContent = `${stl}`;
