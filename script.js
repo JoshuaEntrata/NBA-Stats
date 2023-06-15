@@ -42,8 +42,12 @@ const getPlayerInfo = async (bballAPI) => {
     lastName.textContent = `${last_name}`;
     playerTeam.textContent = `${team.full_name}`;
     playerPosition.textContent = `${position}`;
-    playerHeight.textContent = `${height_feet}'${height_inches}`;
-    playerWeight.textContent = `${weight_pounds} lbs`;
+    playerHeight.textContent =
+      height_feet !== null || height_inches !== null
+        ? `${height_feet}'${height_inches}`
+        : "n/a";
+    playerWeight.textContent =
+      weight_pounds !== null ? `${weight_pounds} lbs` : "n/a";
 
     getSeasonAverages(id);
   } catch (error) {
