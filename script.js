@@ -59,7 +59,6 @@ const getSeasonAverages = async (player_id) => {
 
     const [
       {
-        season,
         games_played,
         min,
         pts,
@@ -76,7 +75,6 @@ const getSeasonAverages = async (player_id) => {
 
     console.log(data);
 
-    const statsSeason = document.getElementById("stats-season");
     const statsGP = document.getElementById("stats-gp");
     const statsMPG = document.getElementById("stats-mpg");
     const statsPPG = document.getElementById("stats-ppg");
@@ -89,7 +87,6 @@ const getSeasonAverages = async (player_id) => {
     const statsBPG = document.getElementById("stats-bpg");
     const statsTPG = document.getElementById("stats-tpg");
 
-    statsSeason.textContent = `${season}`;
     statsGP.textContent = `${games_played}`;
     statsMPG.textContent = `${min}`;
     statsPPG.textContent = `${pts}`;
@@ -124,11 +121,23 @@ const dropdownPlayersList = async () => {
     const response = await fetch(
       `https://www.balldontlie.io/api/v1/players?per_page=100&search=${playerName}`
     );
-    const { data } = await response.json();
+    const { data: players } = await response.json();
 
     document.querySelectorAll("a").forEach((e) => e.remove());
     if (playerName.length > 2) {
-      for (let name of data) {
+      const playerIds = players.map((player) => player.id);
+      const response2022 = await fetch(
+        `https://www.balldontlie.io/api/v1/season_averages?seasons[]=2022&player_ids[]=${playerIds.join(
+          "&player_ids[]="
+        )}`
+      );
+      const { data: playerData } = await response2022.json();
+
+      const players2022 = players.filter((player) =>
+        playerData.some((data) => data.player_id === player.id)
+      );
+
+      for (let name of players2022) {
         const dropDown = document.createElement("a");
         if (name.id < 494 || name.id > 666603) {
           bar.classList.add("show");
