@@ -2,17 +2,17 @@
 
 * {
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: rgba(23, 64, 139, 0.3);
+  background: #7363cb;
 }
 
 .header {
   height: 80px;
-  background-color: #17408b;
+  background-color: #63cb84;
 
   display: flex;
   justify-content: space-between;
@@ -26,6 +26,43 @@ body {
   max-width: 100%;
 }
 
+.home {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+}
+
+.text {
+  position: relative;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.text h2 {
+  font-size: 5em;
+  line-height: 1.4em;
+  font-weight: 600;
+  color: #63cb84;
+}
+
+.text p {
+  color: white;
+  font-size: 1.5em;
+}
+
+.image {
+  z-index: -1;
+}
+
+.image img {
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+}
 /* search button */
 
 form {
@@ -63,7 +100,7 @@ form {
   top: 0;
   right: 0;
   border-radius: 50%;
-  color: #17408b;
+  color: #63cb84;
   text-align: center;
   font-size: 1.2em;
   transition: all 1s;
@@ -89,7 +126,7 @@ form:valid input {
 
 form:hover .fa,
 form:valid .fa {
-  background: #17408b;
+  background: #63cb84;
   color: white;
 }
 
@@ -103,9 +140,9 @@ form:valid button {
   top: calc(100% + 10px);
   left: 0;
   width: 100%;
-  max-height: 200px;
   overflow-y: auto;
-  background-color: hsla(33, 10%, 42%, 0.3);
+  background-color: rgba(99, 203, 132, 0.3);
+  z-index: 10;
   display: none;
 }
 
@@ -123,7 +160,7 @@ form:valid button {
 }
 
 .player-list a:hover {
-  background-color: hsla(33, 10%, 42%, 1);
+  background-color: rgba(99, 203, 132, 0.8);
   font-weight: bold;
   cursor: pointer;
 }
@@ -139,6 +176,7 @@ form:valid button {
 .player-info {
   display: flex;
   flex-direction: column;
+  gap: 30px;
 }
 
 .team-logo-img {
@@ -156,13 +194,13 @@ form:valid button {
   margin: 0;
   display: block;
   font-size: 7rem;
-  color: black;
+  color: #63cb84;
 }
 
 .name-container span {
   font-weight: 600;
   font-size: 10rem;
-  line-height: 8rem;
+  line-height: 6rem;
   text-transform: uppercase;
   color: white;
 }
@@ -174,12 +212,12 @@ form:valid button {
 .team-container span {
   font-size: 3.5rem;
   font-weight: 600;
-  color: black;
+  color: #63cb84;
 }
 
 .team-container .separator {
   width: 2px;
-  background: black;
+  background: white;
   margin: 0 20px;
 }
 
@@ -199,14 +237,14 @@ form:valid button {
 .weight label {
   display: block;
   font-size: 1.7rem;
-  color: black;
+  color: #63cb84;
 }
 
 .height span,
 .weight span {
   font-weight: 600;
   font-size: 4rem;
-  color: black;
+  color: white;
 }
 
 .stats-log {
@@ -227,13 +265,14 @@ form:valid button {
   display: block;
   font-size: 18px;
   line-height: 21px;
-  color: black;
+  color: #7363cb;
+  font-weight: 500;
 }
 
 .stats-log span {
   font-weight: 600;
   font-size: 36px;
-  color: black;
+  color: white;
 }
 
 .label-hidden {

@@ -2,6 +2,7 @@ const player = document.getElementById("search-player");
 const submit = document.querySelector("[data-submit]");
 const bar = document.getElementById("results");
 const labels = document.querySelectorAll("label");
+const homeDiv = document.getElementById("home");
 
 labels.forEach((label) => {
   label.classList.add("label-hidden");
@@ -108,6 +109,7 @@ const getPlayerInfo = async (bballAPI) => {
       teamLogoContainer.innerHTML = "Logo not available";
     }
 
+    homeDiv.style.display = "none";
     getSeasonAverages(id);
     showLabels();
   } catch (error) {
