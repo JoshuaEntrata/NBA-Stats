@@ -1,6 +1,11 @@
 const player = document.getElementById("search-player");
 const submit = document.querySelector("[data-submit]");
 const bar = document.getElementById("results");
+const labels = document.querySelectorAll("label");
+
+labels.forEach((label) => {
+  label.classList.add("label-hidden");
+});
 
 submit.addEventListener("click", (event) => {
   event.preventDefault();
@@ -12,6 +17,46 @@ submit.addEventListener("click", (event) => {
     bar.classList.add("hide");
   }
 });
+
+const showLabels = () => {
+  const labels = document.querySelectorAll("label");
+  labels.forEach((label) => {
+    label.classList.remove("label-hidden");
+  });
+};
+
+const teamLogos = {
+  "Atlanta Hawks": "/img/nba-logos/atlanta-hawks.png",
+  "Boston Celtics": "/img/nba-logos/boston-celtics.png",
+  "Brooklyn Nets": "/img/nba-logos/brooklyn-nets.png",
+  "Charlotte Hornets": "/img/nba-logos/charlotte-hornets.png",
+  "Chicago Bulls": "/img/nba-logos/chicago-bulls.png",
+  "Cleveland Cavaliers": "/img/nba-logos/cleveland-cavaliers.png",
+  "Dallas Mavericks": "/img/nba-logos/dallas-mavericks.png",
+  "Denver Nuggets": "/img/nba-logos/denver-nuggets.png",
+  "Detroit Pistons": "/img/nba-logos/detroit-pistons.png",
+  "Golden State Warriors": "/img/nba-logos/golden-state-warriors.png",
+  "Houston Rockets": "/img/nba-logos/houston-rockets.png",
+  "Indiana Pacers": "/img/nba-logos/indiana-pacers.png",
+  "LA Clippers": "/img/nba-logos/la-clippers.png",
+  "Los Angeles Lakers": "/img/nba-logos/los-angeles-lakers.png",
+  "Memphis Grizzlies": "/img/nba-logos/memphis-grizzlies.png",
+  "Miami Heat": "/img/nba-logos/miami-heat.png",
+  "Milwaukee Bucks": "/img/nba-logos/milwaukee-bucks.png",
+  "Minnesota Timberwolves": "/img/nba-logos/minnesota-timberwolves.png",
+  "New Orleans Pelicans": "/img/nba-logos/new-orleans-pelicans.png",
+  "New York Knicks": "/img/nba-logos/new-york-knicks.png",
+  "Oklahoma City Thunder": "/img/nba-logos/oklahoma-city-thunder.png",
+  "Orlando Magic": "/img/nba-logos/orlando-magic.png",
+  "Philadelphia 76ers": "/img/nba-logos/philadelphia-76ers.png",
+  "Phoenix Suns": "/img/nba-logos/phoenix-suns.png",
+  "Portland Trail Blazers": "/img/nba-logos/portland-trail-blazers.png",
+  "Sacramento Kings": "/img/nba-logos/sacramento-kings.png",
+  "San Antonio Spurs": "/img/nba-logos/san-antonio-spurs.png",
+  "Toronto Raptors": "/img/nba-logos/toronto-raptors.png",
+  "Utah Jazz": "/img/nba-logos/utah-jazz.png",
+  "Washington Wizards": "/img/nba-logos/washington-wizards.png",
+};
 
 const getPlayerInfo = async (bballAPI) => {
   try {
@@ -49,7 +94,22 @@ const getPlayerInfo = async (bballAPI) => {
     playerWeight.textContent =
       weight_pounds !== null ? `${weight_pounds} lbs` : "n/a";
 
+    const teamLogoContainer = document.getElementById("team-logo");
+    const teamLogoPath = teamLogos[team.full_name];
+
+    if (teamLogoPath) {
+      const teamLogo = document.createElement("img");
+      teamLogo.src = teamLogoPath;
+      teamLogo.alt = `${team.full_name} Logo`;
+      teamLogo.classList.add("team-logo-img");
+      teamLogoContainer.innerHTML = "";
+      teamLogoContainer.appendChild(teamLogo);
+    } else {
+      teamLogoContainer.innerHTML = "Logo not available";
+    }
+
     getSeasonAverages(id);
+    showLabels();
   } catch (error) {
     console.log(error);
   }

@@ -8,8 +8,6 @@ body {
   margin: 0;
   padding: 0;
   background: rgba(23, 64, 139, 0.3);
-  min-height: 100vh;
-  max-width: 100vw;
 }
 
 .header {
@@ -131,10 +129,21 @@ form:valid button {
 }
 
 /* player info */
+
+.main-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 70px;
+}
+
 .player-info {
-  margin: 40px 70px;
   display: flex;
   flex-direction: column;
+}
+
+.team-logo-img {
+  max-height: 70vh;
+  width: auto;
 }
 
 .name-container,
@@ -143,17 +152,17 @@ form:valid button {
   padding: 10px 0;
 }
 
-.name-container label {
+.name-container p {
+  margin: 0;
   display: block;
   font-size: 7rem;
-  line-height: 7.1rem;
   color: black;
 }
 
 .name-container span {
   font-weight: 600;
   font-size: 10rem;
-  line-height: 10.1rem;
+  line-height: 8rem;
   text-transform: uppercase;
   color: white;
 }
@@ -209,13 +218,8 @@ form:valid button {
   display: flex;
   justify-content: space-evenly;
   text-align: center;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.5
-  ); /* Adjust the color and transparency as needed */
-  backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
   opacity: 0.8;
 }
 
@@ -230,4 +234,8 @@ form:valid button {
   font-weight: 600;
   font-size: 36px;
   color: black;
+}
+
+.label-hidden {
+  display: none !important;
 }
