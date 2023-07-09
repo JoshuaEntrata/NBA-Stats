@@ -56,7 +56,7 @@ const teamLogos = {
   "San Antonio Spurs": "/img/nba-logos/san-antonio-spurs.png",
   "Toronto Raptors": "/img/nba-logos/toronto-raptors.png",
   "Utah Jazz": "/img/nba-logos/utah-jazz.png",
-  "Washington Wizards": "/img/nba-logos/washington-wizards.png",
+  "Washington Wizards": "img/nba-logos/washington-wizards.png",
 };
 
 const getPlayerInfo = async (bballAPI) => {
